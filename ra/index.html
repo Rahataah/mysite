@@ -83,41 +83,22 @@
             transform: translateX(1.5rem);
         }
 
-        /* Enhanced section titles - bigger and bolder */
-        .section-title {
-            @apply text-5xl font-black mb-10 tracking-tight; /* Increased from text-4xl to text-5xl, mb-8 to mb-10 */
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        h1 {
+            @apply text-3xl md:text-5xl font-black mb-4; /* Larger and bolder */
             transition: color 0.3s ease;
         }
-        .dark-theme .section-title {
-            color: var(--text-dark);
-            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-        }
-        .light-theme .section-title {
-            color: var(--text-light);
-        }
-
-        /* Enhanced subsection headers */
-        .subsection-header {
-            @apply text-3xl font-black mb-4 tracking-tight; /* Increased from text-2xl to text-3xl, font-semibold to font-black */
+        h2 {
+            @apply text-2xl md:text-3xl font-black mb-8; /* Larger and bolder */
             transition: color 0.3s ease;
         }
-        .dark-theme .subsection-header {
-            color: var(--text-dark);
-        }
-        .light-theme .subsection-header {
-            color: var(--text-light);
-        }
-
-        /* Enhanced card headers */
-        .card-header {
-            @apply text-2xl font-black mb-2 tracking-tight; /* Increased font-weight to font-black */
+        h3 {
+            @apply text-xl md:text-2xl font-black mb-4; /* Larger and bolder */
             transition: color 0.3s ease;
         }
-        .dark-theme .card-header {
+        .dark-theme h1, .dark-theme h2, .dark-theme h3 {
             color: var(--text-dark);
         }
-        .light-theme .card-header {
+        .light-theme h1, .light-theme h2, .light-theme h3 {
             color: var(--text-light);
         }
 
@@ -141,12 +122,6 @@
             background: linear-gradient(135deg, #111111 0%, #252525 100%);
         }
 
-        /* Enhanced hero title */
-        .hero-title {
-            @apply text-5xl md:text-7xl font-black mb-4 tracking-tight; /* Increased from text-4xl md:text-6xl to text-5xl md:text-7xl */
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
         .profile-img {
             transition: transform 0.3s ease;
         }
@@ -155,7 +130,7 @@
         }
 
         .nav-link {
-            @apply text-lg font-bold transition-colors; /* Increased from font-medium to font-bold */
+            @apply text-lg font-medium transition-colors;
         }
         .nav-link:hover, .nav-link.active {
             @apply accent-text;
@@ -182,7 +157,7 @@
     <!-- Header -->
     <header class="theme-card sticky top-0 z-50 shadow-lg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black accent-text">Rahat Aayaz</a>
+            <a href="#" class="text-2xl font-bold accent-text">Rahat Aayaz</a>
             <div class="flex items-center space-x-6">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#experience" class="nav-link">Experience</a>
@@ -212,7 +187,7 @@
                     <img src="https://i.postimg.cc/rsKDbJgL/1000029435.png" alt="Rahat Aayaz" class="profile-img rounded-full w-64 h-64 object-cover shadow-xl border-4 theme-border">
                 </div>
                 <div class="md:w-2/3 md:pl-12 text-center md:text-left">
-                    <h1 class="hero-title">Hi, I'm Rahat Aayaz</h1>
+                    <h1><strong style="font-size: 1.5em;">Hi, I'm Rahat Aayaz</strong></h1>
                     <p class="theme-text-muted text-lg mb-6">
                         A dedicated Research Assistant specializing in Building Engineering, Structural Design, and Machine Learning. Passionate about sustainable construction solutions and cutting-edge technology.
                     </p>
@@ -232,13 +207,13 @@
 
         <!-- Research Experience -->
         <section id="experience" class="mb-16">
-            <h2 class="section-title">Research Experience</h2>
+            <h2><strong style="font-size: 1.2em;">Research Experience</strong></h2><br>
             <div class="theme-card rounded-lg p-6 shadow">
-                <h3 class="card-header">Research Assistantship</h3>
+                <h3>Research Assistantship</h3>
                 <p class="font-medium accent-text">Khulna University of Engineering & Technology (KUET)</p>
                 <p class="theme-text-muted text-sm mb-2">March 2024 - Present</p>
                 <p>Key Responsibilities: Research Article Drafting and Analysis, Lab Instruction, Machine Learning Analysis, Structural Designing.</p>
-                <h3 class="card-header mt-6">Undergraduate Thesis</h3>
+                <h3>Undergraduate Thesis</h3>
                 <p class="font-medium accent-text">Khulna University of Engineering & Technology (KUET)</p>
                 <p class="theme-text-muted text-sm mb-2">January 2023 - February 2024</p>
                 <p><strong>Supervisor:</strong> Dr. Md. Habibur Rahman Sobuz</p>
@@ -248,40 +223,43 @@
         
         <!-- Publications Section -->
         <section id="publications" class="mb-16">
-            <h2 class="section-title">Publications</h2>
+            <h2><strong style="font-size: 1.2em;">Publications</strong></h2><br>
             <div class="theme-card rounded-lg p-6 shadow">
-                <h3 class="subsection-header">Peer Reviewed Journals</h3>
+                <h3><strong style="font-size: 1.1em;">Peer Reviewed Journals</strong></h3>
                 <div class="space-y-4">
-                    <div class="publication-item theme-card">
+                    <div class="publication-item theme-card"><a href="https://doi.org/10.1016/j.jmrt.2025.03.003" target="_blank" class="text-500 hover">
                         <p><strong>Title:</strong> Experimental and Microstructural Assessment of Hybrid Fiber Reinforced Graphene Nano-Engineered Concretes</p>
                         <p><strong>Authors:</strong> Md. Habibur Rahman Sobuz, Rahat Aayaz, SM Arifur Rahman, Faiz Uddin Ahmed Shaikh, Md. Kawsarul Islam Kabbo</p>
                         <p><strong>Publisher:</strong> Journal of Materials Research and Technology, Elsevier, 2024</p>
-                        <a href="https://doi.org/10.1016/j.jmrt.2025.03.003" target="_blank" class="text-blue-500 hover:underline">[DOI]</a>
+                        </a>
                     </div>
-                    <div class="publication-item theme-card">
+                    <div class="publication-item theme-card"><a href="https://doi.org/10.1016/j.conbuildmat.2025.139897" target="_blank" class="text-500 hover">
                         <p><strong>Title:</strong> Combined Influence of Modified Recycled Concrete Aggregate and Metakaolin on High-Strength Concrete Production</p>
                         <p><strong>Authors:</strong> Md. Habibur Rahman Sobuz, Md. Mushfiqur Rahman, Rahat Aayaz, Wael S. Al-Rashed, Shuvo Dip Datta, Md. Abu Safayet, Md. Kawsarul Islam Kabbo, Masuk Abdullah</p>
                         <p><strong>Publisher:</strong> Construction & Building Materials, Elsevier, 2024</p>
-                        <a href="https://doi.org/10.1016/j.conbuildmat.2025.139897" target="_blank" class="text-blue-500 hover:underline">[DOI]</a>
+                        </a>
                     </div>
-                    <div class="publication-item theme-card">
+                    <div class="publication-item theme-card"><a href="https://doi.org/10.1016/j.clet.2025.100886" target="_blank" class="text-500 hover">
                         <p><strong>Title:</strong> Assessing the Engineering Properties and Environmental Impact of Sustainable Concrete Utilizing Waste Banana Leaf Ash as a Partial Cement Replacement</p>
                         <p><strong>Authors:</strong> Asif Mahmud Momshad, Md. Hamidul Islam, Md. Habibur Rahman Sobuz, Shuvo Dip Datta, Rahat Aayaz, Md. Kawsarul Islam Kabbo, Md. Munir Hayet Khan</p>
                         <p><strong>Publisher:</strong> Cleaner Engineering and Technology, Elsevier, 2024</p>
-                        <a href="https://doi.org/10.1016/j.clet.2025.100886" target="_blank" class="text-blue-500 hover:underline">[DOI]</a>
+                        </a>
                     </div>
                     <div class="publication-item theme-card">
                         <p><strong>Title:</strong> Application of Genetic Machine Learning for Predicting, Quantifying, and Optimizing the Strength of Fiber-Reinforced Concrete</p>
                         <p><strong>Authors:</strong> Rahat Aayaz, Israt Jahan</p>
-                        <p><strong>Publisher:</strong> Submitted to Streamlit.app</p>
+                        <p><strong>Publisher:</strong> Under Review</p>
                     </div>
                     <div class="publication-item theme-card">
                         <p><strong>Title:</strong> A Novel Hybrid Machine Learning Based Prediction of Compressive Strength of Natural Fiber Recycled Aggregate Concrete with Incorporating SHAP and PDP Analysis</p>
                         <p><strong>Authors:</strong> Rahat Aayaz, Md. Habibur Rahman Sobuz, Md. Kawsarul Islam Kabbo, Muhammad Izzat Nor Ma'arof, Walid Mansour, SM Arifur Rahman, Aanika Roshni, Jannat Ara Jabin, Md. Munir Hayet Khan, Israt Jahan, Abu Sayed Mohammad Akid</p>
-                        <p><strong>Publisher:</strong> In Progress</p>
+                        <p><strong>Publisher:</strong> Under Review</p>
                     </div>
                 </div>
-                <h3 class="subsection-header">Conference Proceedings</h3>
+<br>
+<br>
+
+                <h3><strong style="font-size: 1.1em;">Conference Proceedings</strong></h3>
                 <div class="space-y-4">
                     <div class="publication-item theme-card">
                         <p><strong>Title:</strong> Compressive Strength Prediction of High-Strength Graphene Reinforced Concrete using Machine Learning</p>
@@ -298,30 +276,27 @@
                         <p><strong>Authors:</strong> Md Al Toufiq Billah, Ayan Saha, Rahat Aayaz</p>
                         <p><strong>Publisher:</strong> 7th International Conference on Advances in Civil Engineering (ICACE 2024), CUET, Chittagong, 12-14 December 2024</p>
                     </div>
-                    <div class="publication-item theme-card">
-                        <p><strong>Title:</strong> An Investigation for Detecting Plastic Waste Using Automated River Mapping with Unmanned Aerial Vehicles (UAVs) and Deep Learning Algorithms in Buriganga River</p>
-                        <p><strong>Authors:</strong> Aanika Roshni, Rahat Aayaz</p>
-                        <p><strong>Publisher:</strong> 9th International Conference on Sustainable Solutions for Waste Management in Developing Countries (WasteSafe 2025), KUET, Khulna, 22-23 February 2025 [Under Review]</p>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Education Section -->
         <section id="education" class="mb-16">
-            <h2 class="section-title">Education</h2>
+            <h2><strong style="font-size: 1.2em;">Education</strong></h2><br>
             <div class="theme-card rounded-lg p-6 shadow">
-                <h3 class="card-header">Bachelor of Science in Engineering</h3>
+                <h3><strong style="font-size: 1.1em;">Bachelor of Science in Engineering</strong></h3>
                 <p class="font-medium accent-text">Khulna University of Engineering & Technology</p>
                 <p class="theme-text-muted text-sm mb-2">Dec 2018 - Mar 2024</p>
                 <p><strong>Department:</strong> Building Engineering and Construction Management</p>
                 <p><strong>Major:</strong> Structural & Materials Engineering</p>
                 <p><strong>CGPA:</strong> 3.14/4.00</p>
-                <h3 class="card-header mt-6">Higher Secondary Certificate (HSC)</h3>
+                <br>
+                <h3><strong style="font-size: 1.1em;">Higher Secondary Certificate (HSC)</strong></h3>
                 <p class="font-medium accent-text">Birshreshtha Noor Mohammad Public College</p>
                 <p class="theme-text-muted text-sm mb-2">Mar 2016 - Apr 2018</p>
                 <p><strong>Field of Study:</strong> Science</p>
-                <h3 class="card-header mt-6">Secondary School Certificate (SSC)</h3>
+                <br>
+                <h3><strong style="font-size: 1.1em;">Secondary School Certificate (SSC)</strong></h3>
                 <p class="font-medium accent-text">Faizur Rahman Ideal Institute</p>
                 <p class="theme-text-muted text-sm mb-2">Jan 2006 - Feb 2016</p>
                 <p><strong>Field of Study:</strong> Science</p>
@@ -330,21 +305,21 @@
 
         <!-- Technical Skills Section -->
         <section id="skills" class="mb-16">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2><strong style="font-size: 1.2em;">Technical Skills</strong></h2><br>
             <div class="theme-card rounded-lg p-6 shadow">
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>ETABS</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>STAAD.Pro</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>ANSYS</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>AutoCAD</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>Autodesk Revit</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>Python</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>C++</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>MATLAB</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>Machine Learning</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>Data Analysis</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>Lumion</div>
-                    <div class="font-bold"><i class="fas fa-check-circle accent-text mr-2"></i>OriginPro</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>ETABS</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>STAAD.Pro</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>ANSYS</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>AutoCAD</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Autodesk Revit</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Python</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>C++</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>MATLAB</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Machine Learning</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Data Analysis</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Lumion</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>OriginPro</div>
                 </div>
             </div>
         </section>
@@ -354,7 +329,7 @@
     <!-- Footer -->
     <footer class="theme-card py-8 border-t theme-border">
         <div class="container mx-auto px-6 text-center">
-            <p class="font-black text-lg">Rahat Aayaz</p>
+            <p class="font-bold text-lg">Rahat Aayaz</p>
             <p class="theme-text-muted text-sm mb-4">Dhaka, Bangladesh</p>
             <div class="flex justify-center space-x-6">
                 <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" class="social-icon"><i class="fas fa-graduation-cap"></i></a>
