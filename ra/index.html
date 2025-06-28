@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahat Aayaz | Personal Portfolio</title>
+    <title>    <style>
+        body {
+            font-family: Calibri;
+        }Rahat Aayaz | Personal Portfolio</style></title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --bg-light: #f9fafb;
-            --bg-dark: #000000; /* Pitch black for AMOLED */
+            --bg-dark: #000000;
             --card-bg-light: #ffffff;
             --card-bg-dark: #1a1a1a;
             --text-light: #1e293b;
@@ -31,16 +34,42 @@
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: opacity 0.3s ease;
         }
 
         .light-theme {
-            background-color: var(--bg-light);
+            background-image: url('https://i.postimg.cc/Dz4byFXb/nick-wessaert-JI01fn0-U7-Cg-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text-light);
         }
 
+        .light-theme::before {
+            background-color: rgba(249, 250, 251, 0.85); /* Semi-transparent light overlay */
+        }
+
         .dark-theme {
-            background-color: var(--bg-dark);
+            background-image: url('https://i.postimg.cc/X7nFKTTT/Gemini-Generated-Image-8d3nf98d3nf98d3n.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--text-dark);
+        }
+
+        .dark-theme::before {
+            background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent dark overlay */
         }
 
         .theme-card {
@@ -258,7 +287,6 @@
                 </div>
 <br>
 <br>
-
                 <h3><strong style="font-size: 1.1em;">Conference Proceedings</strong></h3>
                 <div class="space-y-4">
                     <div class="publication-item theme-card">
