@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Calibri;
-        }<title>    Rahat Aayaz | Personal Portfolio</title></style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title><strong>Rahat Aayaz | Personal Portfolio</strong></title>
+    <link href="https://fonts.cdnfonts.com/css/agency-fb" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -28,11 +25,11 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px; /* Offset for fixed header */
+            scroll-padding-top: 80px;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Agency FB', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
             position: relative;
         }
@@ -57,7 +54,7 @@
         }
 
         .light-theme::before {
-            background-color: rgba(249, 250, 251, 0.85); /* Semi-transparent light overlay */
+            background-color: rgba(249, 250, 251, 0.85);
         }
 
         .dark-theme {
@@ -69,7 +66,7 @@
         }
 
         .dark-theme::before {
-            background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent dark overlay */
+            background-color: rgba(0, 0, 0, 0.85);
         }
 
         .theme-card {
@@ -113,16 +110,25 @@
         }
 
         h1 {
-            @apply text-3xl md:text-5xl font-black mb-4; /* Larger and bolder */
+            @apply text-3xl md:text-5xl font-black mb-4;
             transition: color 0.3s ease;
+            font-family: 'Agency FB', sans-serif;
+            font-weight: bold;
         }
         h2 {
-            @apply text-2xl md:text-3xl font-black mb-8; /* Larger and bolder */
+            @apply text-2xl md:text-3xl font-black mb-8;
             transition: color 0.3s ease;
+            font-family: 'Agency FB', sans-serif;
+            font-weight: bold;
         }
         h3 {
-            @apply text-xl md:text-2xl font-black mb-4; /* Larger and bolder */
+            @apply text-xl md:text-2xl font-black mb-4;
             transition: color 0.3s ease;
+            font-family: 'Agency FB', sans-serif;
+            font-weight: bold;
+        }
+        p, a, li, div {
+            font-family: 'Agency FB', sans-serif;
         }
         .dark-theme h1, .dark-theme h2, .dark-theme h3 {
             color: var(--text-dark);
@@ -160,6 +166,7 @@
 
         .nav-link {
             @apply text-lg font-medium transition-colors;
+            font-family: 'Agency FB', sans-serif;
         }
         .nav-link:hover, .nav-link.active {
             @apply accent-text;
@@ -169,7 +176,6 @@
             @apply text-2xl p-2 rounded-full border theme-border hover:accent-text transition-all;
         }
 
-        /* Fade-in animation for sections */
         section {
             opacity: 0;
             transform: translateY(20px);
@@ -186,13 +192,13 @@
     <!-- Header -->
     <header class="theme-card sticky top-0 z-50 shadow-lg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold accent-text">Rahat Aayaz</a>
+            <a href="#" class="text-2xl font-bold accent-text"><strong>Rahat Aayaz</strong></a>
             <div class="flex items-center space-x-6">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#publications" class="nav-link">Publications</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#about" class="nav-link"><strong>About</strong></a>
+                <a href="#experience" class="nav-link"><strong>Experience</strong></a>
+                <a href="#publications" class="nav-link"><strong>Publications</strong></a>
+                <a href="#education" class="nav-link"><strong>Education</strong></a>
+                <a href="#skills" class="nav-link"><strong>Skills</strong></a>
                 <!-- Theme Toggle -->
                 <div class="flex items-center space-x-2">
                     <i class="fas fa-sun text-yellow-500"></i>
@@ -221,12 +227,14 @@
                         A dedicated Engineer and Research Enthusiast specializing in Building Engineering, Structural Design, and Machine Learning. Passionate about sustainable construction solutions and cutting-edge technology.
                     </p>
                     <div class="flex flex-wrap justify-center md:justify-start space-x-4 mb-6">
-                        <a href="mailto:rahataayaz@gmail.com" class="accent-bg accent-bg-hover text-white font-bold py-2 px-6 rounded-lg transition-colors">Contact Me</a>
-                        <a href="https://syjds-my.sharepoint.com/:w:/g/personal/rahataayaz_syjds_onmicrosoft_com/EXEIKg_vpz9KiuAuPZ4Vv6cB-UOXBWxumUVLLmgxoEU0lw" target="_blank" class="theme-card font-bold py-2 px-6 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">View CV</a>
+                        <a href="mailto:rahataayaz@gmail.com" class="accent-bg accent-bg-hover text-white font-bold py-2 px-6 rounded-lg transition-colors"><strong>Contact Me</strong></a>
+                        <a href="https://syjds Lantus://syjds-my.sharepoint.com/:w:/g/personal/rahataayaz_syjds_onmicrosoft_com/EXEIKg_vpz9KiuAuPZ4Vv6cB-UOXBWxumUVLLmgxoEU0lw" target="_blank" class="theme-card font-bold py-2 px-6 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"><strong>View CV</strong></a>
                     </div>
                     <div class="flex justify-center md:justify-start space-x-4">
                         <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="https://orcid.org/0009-0009-9641-8033" target="_blank" class="social-icon" title="ORCID"><i class="fab fa-orcid"></i></a>
+                        <a href="https://orcid.org/0009-0009-9641-8033" target="_blank" class="social-icon" title="ORCID"><i class="fab
+
+                        fa-orcid"></i></a>
                         <a href="https://github.com/Rahataah" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
                         <a href="mailto:rahataayaz@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
@@ -236,14 +244,14 @@
 
         <!-- Research Experience -->
         <section id="experience" class="mb-16">
-            <h2><strong style="font-size: 1.2em;">Research Experience</strong></h2><br>
+            <h2><strong style="font-size: 1.2em;"><strong>Research Experience</strong></h2><br>
             <div class="theme-card rounded-lg p-6 shadow">
-                <h3><b>Research Assistantship</b></h3>
-                <p class="font-medium accent-text">Khulna University of Engineering & Technology (KUET)</p>
+                <h3><strong>Research Assistantship</strong></h3>
+                <p class="font-medium accent-text"><strong>Khulna University of Engineering & Technology (KUET)</strong></p>
                 <p class="theme-text-muted text-sm mb-2">March 2024 - Present</p>
                 <p>Key Responsibilities: Research Article Drafting and Analysis, Lab Instruction, Machine Learning Analysis, Structural Designing.</p><br>
-                <h3><b>Undergraduate Thesis</b></h3>
-                <p class="font-medium accent-text">Khulna University of Engineering & Technology (KUET)</p>
+                <h3><strong>Undergraduate Thesis</strong></h3>
+                <p class="font-medium accent-text"><strong>Khulna University of        Engineering & Technology (KUET)</strong></p>
                 <p class="theme-text-muted text-sm mb-2">January 2023 - February 2024</p>
                 <p>Supervisor: Dr. Md. Habibur Rahman Sobuz</p>
                 <p>Title: Enhancing High-Strength Concrete Incorporating Graphene and Hybrid Fibers: A Multi-Layered Laboratory Experiments and Machine Learning Analysis</p>
@@ -285,24 +293,31 @@
                         <p><strong>Publisher:</strong> Under Review</p>
                     </div>
                 </div>
-<br>
-<br>
+                <br><br>
                 <h3><strong style="font-size: 1.1em;">Conference Proceedings</strong></h3>
                 <div class="space-y-4">
                     <div class="publication-item theme-card">
-                        <p><strong>Title:</strong> Compressive Strength Prediction of High-Strength Graphene Reinforced Concrete using Machine Learning</p>
-                        <p><strong>Authors:</strong> Rahat Aayaz, Md. Habibur Rahman Sobuz, Sumaiya Mifra Akhter, Jannat Ara Jabin</p>
-                        <p><strong>Publisher:</strong> 7th International Conference on Civil Engineering for Sustainable Development (ICCESD 2024), KUET, Khulna, 7-9 February 2024</p>
+                        <a href="http://iccesd.com/proc_2024/Papers/764.pdf" target="_blank" class="text-500 hover">
+                            <p><strong>Title:</strong> Compressive Strength Prediction of High-Strength Graphene Reinforced Concrete using Machine Learning</p>
+                            <p><strong>Authors:</strong> Rahat Aayaz, Md. Habibur Rahman Sobuz, Sumaiya Mifra Akhter, Jannat Ara Jabin</p>
+                            <p><strong>Publisher:</strong> 7th International Conference on Civil Engineering for Sustainable Development (ICCESD 2024), KUET, Kh
+
+                            ulna, 7-9 February 2024</p>
+                        </a>
                     </div>
                     <div class="publication-item theme-card">
-                        <p><strong>Title:</strong> Optimizing Small Spaces: A Comprehensive Study on Interior Design Challenges, Perceptual Experiences, and Innovative Solutions</p>
-                        <p><strong>Authors:</strong> Israt Jahan, Md. Shahriar Hossain, Rahat Aayaz</p>
-                        <p><strong>Publisher:</strong> 7th International Conference on Civil Engineering for Sustainable Development (ICCESD 2024), KUET, Khulna, 7-9 February 2024</p>
+                        <a href="http://iccesd.com/proc_2024/Papers/702.pdf" target="_blank" class="text-500 hover">
+                            <p><strong>Title:</strong> Optimizing Small Spaces: A Comprehensive Study on Interior Design Challenges, Perceptual Experiences, and Innovative Solutions</p>
+                            <p><strong>Authors:</strong> Israt Jahan, Md. Shahriar Hossain, Rahat Aayaz</p>
+                            <p><strong>Publisher:</strong> 7th International Conference on Civil Engineering for Sustainable Development (ICCESD 2024), KUET, Khulna, 7-9 February 2024</p>
+                        </a>
                     </div>
                     <div class="publication-item theme-card">
-                        <p><strong>Title:</strong> Machine Learning Techniques to Predict Performance of Fiber-Infused Self-Compacting Concrete with SHAP & PDP Analysis</p>
-                        <p><strong>Authors:</strong> Md Al Toufiq Billah, Ayan Saha, Rahat Aayaz</p>
-                        <p><strong>Publisher:</strong> 7th International Conference on Advances in Civil Engineering (ICACE 2024), CUET, Chittagong, 12-14 December 2024</p>
+                        <a href="https://www.researchgate.net/publication/388594179_MACHINE_LEARNING_TECHNIQUES_TO_PREDICT_THE_PERFORMANCE_OF_FIBER-INFUSED_SELF-COMPACTING_CONCRETE" target="_blank" class="text-500 hover">
+                            <p><strong>Title:</strong> Machine Learning Techniques to Predict Performance of Fiber-Infused Self-Compacting Concrete with SHAP & PDP Analysis</p>
+                            <p><strong>Authors:</strong> Md Al Toufiq Billah, Ayan Saha, Rahat Aayaz</p>
+                            <p><strong>Publisher:</strong> 7th International Conference on Advances in Civil Engineering (ICACE 2024), CUET, Chittagong, 12-14 December 2024</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -313,19 +328,19 @@
             <h2><strong style="font-size: 1.2em;">Education</strong></h2><br>
             <div class="theme-card rounded-lg p-6 shadow">
                 <h3><strong style="font-size: 1.1em;">Bachelor of Science in Engineering</strong></h3>
-                <p class="font-medium accent-text">Khulna University of Engineering & Technology</p>
+                <p class="font-medium accent-text"><strong>Khulna University of Engineering & Technology</strong></p>
                 <p class="theme-text-muted text-sm mb-2">Dec 2018 - Mar 2024</p>
                 <p><strong>Department:</strong> Building Engineering and Construction Management</p>
                 <p><strong>Major:</strong> Structural & Materials Engineering</p>
                 <p><strong>CGPA:</strong> 3.14/4.00</p>
                 <br>
                 <h3><strong style="font-size: 1.1em;">Higher Secondary Certificate (HSC)</strong></h3>
-                <p class="font-medium accent-text">Birshreshtha Noor Mohammad Public College</p>
+                <p class="font-medium accent-text"><strong>Birshreshtha Noor Mohammad Public College</strong></p>
                 <p class="theme-text-muted text-sm mb-2">Mar 2016 - Apr 2018</p>
                 <p><strong>Field of Study:</strong> Science</p>
                 <br>
                 <h3><strong style="font-size: 1.1em;">Secondary School Certificate (SSC)</strong></h3>
-                <p class="font-medium accent-text">Faizur Rahman Ideal Institute</p>
+                <p class="font-medium accent-text"><strong>Faizur Rahman Ideal Institute</strong></p>
                 <p class="theme-text-muted text-sm mb-2">Jan 2006 - Feb 2016</p>
                 <p><strong>Field of Study:</strong> Science</p>
             </div>
@@ -357,7 +372,7 @@
     <!-- Footer -->
     <footer class="theme-card py-8 border-t theme-border">
         <div class="container mx-auto px-6 text-center">
-            <p class="font-bold text-lg">Rahat Aayaz</p>
+            <p class="font-bold text-lg"><strong>Rahat Aayaz</strong></p>
             <p class="theme-text-muted text-sm mb-4">Dhaka, Bangladesh</p>
             <div class="flex justify-center space-x-6">
                 <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" class="social-icon"><i class="fas fa-graduation-cap"></i></a>
