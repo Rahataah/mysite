@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahat Aayaz | Personal Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Variables for theming */
+        :root {
+            --bg-light: #f8fafc; /* slate-50 */
+            --bg-dark: #020617; /* slate-950 */
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #0f172a; /* slate-900 */
+            --text-light: #0f172a; /* slate-900 */
+            --text-dark: #e2e8f0; /* slate-200 */
+            --text-muted-light: #64748b; /* slate-500 */
+            --text-muted-dark: #94a3b8; /* slate-400 */
+            --border-light: #e2e8f0; /* slate-200 */
+            --border-dark: #1e293b; /* slate-800 */
+            --accent: #4f46e5; /* indigo-600 */
+            --accent-hover: #4338ca; /* indigo-700 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .light-theme {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        .dark-theme {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        /* General element theming */
+        .theme-card {
+            background-color: var(--card-bg-light);
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+            border: 1px solid var(--border-light);
+        }
+        .dark-theme .theme-card {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-dark);
+        }
+
+        .theme-text-muted {
+            color: var(--text-muted-light);
+        }
+        .dark-theme .theme-text-muted {
+            color: var(--text-muted-dark);
+        }
+        
+        .theme-border {
+             border-color: var(--border-light);
+        }
+        .dark-theme .theme-border {
+            border-color: var(--border-dark);
+        }
+
+        .accent-bg { background-color: var(--accent); }
+        .accent-bg-hover:hover { background-color: var(--accent-hover); }
+        .accent-text { color: var(--accent); }
+
+        /* Toggle specific styles */
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: var(--accent);
+        }
+
+        .toggle-checkbox:checked + .toggle-label .toggle-ball {
+            transform: translateX(1.25rem); /* Adjusted for smaller toggle */
+        }
+        
+        .section-title {
+            @apply text-2xl font-bold mb-6 pb-2 border-b-2;
+            border-color: var(--accent);
+        }
+
+        .publication-item {
+            @apply mb-4 pb-4 border-b;
+        }
+         .dark-theme .publication-item {
+             border-color: var(--border-dark);
+        }
+         .light-theme .publication-item {
+             border-color: var(--border-light);
+        }
+        .publication-item:last-child {
+            @apply border-b-0 pb-0 mb-0;
+        }
+    </style>
+</head>
+<body class="light-theme">
+
+    <!-- Header -->
+    <header class="theme-card sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold accent-text">Rahat Aayaz</a>
+            <div class="flex items-center space-x-4">
+                 <!-- Theme Toggle -->
+                <div class="flex items-center justify-center space-x-2">
+                    <i class="fas fa-sun text-yellow-500"></i>
+                    <input type="checkbox" id="theme-toggle" class="toggle-checkbox hidden">
+                    <label for="theme-toggle" class="toggle-label flex items-center cursor-pointer w-12 h-6 bg-gray-300 rounded-full p-1 transition-colors duration-300 ease-in-out">
+                        <div class="toggle-ball w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 ease-in-out"></div>
+                    </label>
+                    <i class="fas fa-moon text-slate-400"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 md:p-8">
+        
+        <!-- Hero Section -->
+        <section id="about" class="mb-16">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-3/4 md:pr-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm Rahat Aayaz</h1>
+                    <p class="theme-text-muted text-lg mb-6">
+                        A dedicated and analytical Research Assistant with a strong background in Building Engineering, Structural Design, and Machine Learning. Passionate about leveraging technology to create sustainable and efficient solutions in the construction industry.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="mailto:rahataayaz@gmail.com" class="accent-bg accent-bg-hover text-white font-bold py-2 px-4 rounded-lg transition-colors">Contact Me</a>
+                        <a href="CV.pdf" target="_blank" class="theme-card font-bold py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">View CV</a>
+                    </div>
+                </div>
+                <div class="md:w-1/4 mt-8 md:mt-0 flex justify-center">
+                    <img src="image.png" alt="Rahat Aayaz" class="rounded-full w-48 h-48 md:w-56 md:h-56 object-cover shadow-lg border-4 theme-border">
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Experience -->
+        <section id="experience" class="mb-16">
+            <h2 class="section-title">Research Experience</h2>
+            <div class="theme-card rounded-lg p-6 shadow">
+                <h3 class="text-xl font-semibold">Research Assistantship</h3>
+                <p class="font-medium accent-text">Khulna University of Engineering & Technology (KUET)</p>
+                <p class="theme-text-muted text-sm mb-2">March 2024 - Present</p>
+                <p>Key Responsibilities: Research Article Drafting and Analysis, Lab Instruction, Machine Learning Analysis, Structural Designing.</p>
+            </div>
+        </section>
+        
+        <!-- Publications Section -->
+        <section id="publications" class="mb-16">
+            <h2 class="section-title">Publications</h2>
+            <div class="theme-card rounded-lg p-6 shadow">
+                <h3 class="text-xl font-semibold mb-4">Peer Reviewed Journals</h3>
+                <ul>
+                    <li class="publication-item">Md. Habibur Rahman Sobuz, <strong class="accent-text">Rahat Aayaz</strong>, et al. "Experimental and Microstructural Assessment of Hybrid Fiber Reinforced Graphene Nano-Engineered Concretes". Journal of Materials Research and Technology, 2024. <a href="https://doi.org/10.1016/j.jmrt.2025.03.003" target="_blank" class="text-blue-500 hover:underline">[DOI]</a></li>
+                    <li class="publication-item">Md. Habibur Rahman Sobuz, Md. Mushfiqur Rahman, <strong class="accent-text">Rahat Aayaz</strong>, et al. "Combined Influence of Modified Recycled Concrete Aggregate and Metakaolin on High-Strength Concrete Production...". Construction & Building Materials, 2024. <a href="https://doi.org/10.1016/j.conbuildmat.2025.139897" target="_blank" class="text-blue-500 hover:underline">[DOI]</a></li>
+                    <li class="publication-item">Asif Mahmud Momshad, Md. Hamidul Islam, <strong class="accent-text">Rahat Aayaz</strong>, et al. "Assessing the Engineering Properties and Environmental Impact...of Sustainable Concrete Utilizing Waste Banana Leaf Ash...". Cleaner Engineering and Technology, 2024. <a href="https://doi.org/10.1016/j.clet.2025.100886" target="_blank" class="text-blue-500 hover:underline">[DOI]</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="mb-16">
+            <h2 class="section-title">Education</h2>
+            <div class="theme-card rounded-lg p-6 shadow">
+                <h3 class="text-xl font-semibold">Bachelor of Science in Engineering</h3>
+                <p class="font-medium accent-text">Khulna University of Engineering & Technology</p>
+                <p class="theme-text-muted text-sm mb-2">Dec 2018 - Mar 2024</p>
+                <p><strong>Department:</strong> Building Engineering and Construction Management</p>
+                <p><strong>Major:</strong> Structural & Materials Engineering</p>
+                <p><strong>CGPA:</strong> 3.14/4.00</p>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="mb-16">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="theme-card rounded-lg p-6 shadow">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>ETABS</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>STAAD.Pro</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>ANSYS</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>AutoCAD</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Autodesk Revit</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Python</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>C++</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>MATLAB</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Machine Learning</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Data Analysis</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>Lumion</div>
+                    <div class="font-medium"><i class="fas fa-check-circle accent-text mr-2"></i>OriginPro</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="theme-card mt-16 border-t theme-border">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-4 md:mb-0">
+                     <p class="font-bold">Rahat Aayaz</p>
+                     <p class="theme-text-muted text-sm">Dhaka, Bangladesh</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" class="theme-text-muted hover:accent-text transition-colors"><i class="fas fa-graduation-cap fa-lg"></i><span class="sr-only">Google Scholar</span></a>
+                    <a href="https://orcid.org/0009-0009-9641-8033" target="_blank" class="theme-text-muted hover:accent-text transition-colors"><i class="fab fa-orcid fa-lg"></i><span class="sr-only">ORCID</span></a>
+                    <a href="https://github.com/your_github" target="_blank" class="theme-text-muted hover:accent-text transition-colors"><i class="fab fa-github fa-lg"></i><span class="sr-only">GitHub</span></a>
+                    <a href="mailto:rahataayaz@gmail.com" class="theme-text-muted hover:accent-text transition-colors"><i class="fas fa-envelope fa-lg"></i><span class="sr-only">Email</span></a>
+                </div>
+            </div>
+             <p class="text-center theme-text-muted text-xs mt-8">&copy; 2025 Rahat Aayaz. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // On page load, apply the saved theme or default to light
+        const applySavedTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.replace('light-theme', 'dark-theme');
+                themeToggle.checked = true;
+            } else {
+                body.classList.add('light-theme'); // Ensure light-theme is present
+                themeToggle.checked = false;
+            }
+        };
+
+        // Toggle theme and save preference to localStorage
+        const handleThemeToggle = () => {
+            if (themeToggle.checked) {
+                body.classList.replace('light-theme', 'dark-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.replace('dark-theme', 'light-theme');
+                localStorage.setItem('theme', 'light');
+            }
+        };
+
+        themeToggle.addEventListener('change', handleThemeToggle);
+        document.addEventListener('DOMContentLoaded', applySavedTheme);
+    </script>
+
+</body>
+</html>
