@@ -6,27 +6,26 @@
     <title>Rahat Aayaz | Personal Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* CSS Variables for theming */
         :root {
-            --bg-light: #f8fafc; /* slate-50 */
-            --bg-dark: #020617; /* slate-950 */
+            --bg-light: #f9fafb;
+            --bg-dark: #000000; /* Pitch black for AMOLED */
             --card-bg-light: #ffffff;
-            --card-bg-dark: #0f172a; /* slate-900 */
-            --text-light: #0f172a; /* slate-900 */
-            --text-dark: #e2e8f0; /* slate-200 */
-            --text-muted-light: #64748b; /* slate-500 */
-            --text-muted-dark: #94a3b8; /* slate-400 */
-            --border-light: #e2e8f0; /* slate-200 */
-            --border-dark: #1e293b; /* slate-800 */
-            --accent: #4f46e5; /* indigo-600 */
-            --accent-hover: #4338ca; /* indigo-700 */
+            --card-bg-dark: #1a1a1a; /* Slightly lighter for cards */
+            --text-light: #1e293b;
+            --text-dark: #f3f4f6; /* High contrast for dark theme */
+            --text-muted-light: #6b7280;
+            --text-muted-dark: #9ca3af;
+            --border-light: #e5e7eb;
+            --border-dark: #2d2d2d; /* Subtle border for dark theme */
+            --accent: #6366f1;
+            --accent-hover: #4f46e5;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            transition: background-color 0.4s ease, color 0.4s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
             scroll-behavior: smooth;
         }
 
@@ -40,15 +39,18 @@
             color: var(--text-dark);
         }
 
-        /* General element theming */
         .theme-card {
             background-color: var(--card-bg-light);
-            transition: background-color 0.4s ease, border-color 0.4s ease;
             border: 1px solid var(--border-light);
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
         }
         .dark-theme .theme-card {
             background-color: var(--card-bg-dark);
             border-color: var(--border-dark);
+        }
+        .theme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .theme-text-muted {
@@ -57,9 +59,9 @@
         .dark-theme .theme-text-muted {
             color: var(--text-muted-dark);
         }
-        
+
         .theme-border {
-             border-color: var(--border-light);
+            border-color: var(--border-light);
         }
         .dark-theme .theme-border {
             border-color: var(--border-dark);
@@ -69,47 +71,82 @@
         .accent-bg-hover:hover { background-color: var(--accent-hover); }
         .accent-text { color: var(--accent); }
 
-        /* Toggle specific styles */
         .toggle-checkbox:checked + .toggle-label {
             background-color: var(--accent);
         }
 
         .toggle-checkbox:checked + .toggle-label .toggle-ball {
-            transform: translateX(1.25rem); /* Adjusted for smaller toggle */
+            transform: translateX(1.5rem);
         }
-        
+
         .section-title {
-            @apply text-3xl font-extrabold mb-6 pb-2 border-b-2;
-            border-color: var(--accent);
+            @apply text-3xl font-extrabold mb-8;
+            transition: color 0.3s ease;
+        }
+        .dark-theme .section-title {
+            color: var(--text-dark);
+        }
+        .light-theme .section-title {
+            color: var(--text-light);
         }
 
         .publication-item {
-            @apply mb-4 pb-4 border-b;
+            @apply p-4 mb-4 border rounded-lg;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
-         .dark-theme .publication-item {
-             border-color: var(--border-dark);
+        .dark-theme .publication-item {
+            border-color: var(--border-dark);
         }
-         .light-theme .publication-item {
-             border-color: var(--border-light);
+        .light-theme .publication-item {
+            border-color: var(--border-light);
         }
-        .publication-item:last-child {
-            @apply border-b-0 pb-0 mb-0;
+
+        .hero-section {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            padding: 4rem 0;
+            border-radius: 0 0 2rem 2rem;
+        }
+        .dark-theme .hero-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .profile-img {
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            @apply text-lg font-medium transition-colors;
+        }
+        .nav-link:hover, .nav-link.active {
+            @apply accent-text;
+        }
+
+        .social-icon {
+            @apply text-2xl p-2 rounded-full border theme-border hover:accent-text transition-all;
         }
     </style>
 </head>
-<body class="light-theme">
+<body class="dark-theme">
 
     <!-- Header -->
-    <header class="theme-card sticky top-0 z-50 shadow-md">
+    <header class="theme-card sticky top-0 z-50 shadow-lg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold accent-text">Rahat Aayaz</a>
-            <div class="flex items-center space-x-4">
-                 <!-- Theme Toggle -->
-                <div class="flex items-center justify-center space-x-2">
+            <a href="#" class="text-2xl font-bold accent-text">Rahat Aayaz</a>
+            <div class="flex items-center space-x-6">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <!-- Theme Toggle -->
+                <div class="flex items-center space-x-2">
                     <i class="fas fa-sun text-yellow-500"></i>
                     <input type="checkbox" id="theme-toggle" class="toggle-checkbox hidden">
-                    <label for="theme-toggle" class="toggle-label flex items-center cursor-pointer w-12 h-6 bg-gray-300 rounded-full p-1 transition-colors duration-300 ease-in-out">
-                        <div class="toggle-ball w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 ease-in-out"></div>
+                    <label for="theme-toggle" class="toggle-label flex items-center cursor-pointer w-14 h-7 bg-gray-600 rounded-full p-1 transition-colors duration-300 ease-in-out">
+                        <div class="toggle-ball w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ease-in-out"></div>
                     </label>
                     <i class="fas fa-moon text-slate-400"></i>
                 </div>
@@ -121,21 +158,26 @@
     <main class="container mx-auto p-6 md:p-8">
         
         <!-- Hero Section -->
-        <section id="about" class="mb-16">
+        <section id="about" class="hero-section mb-16">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-3/4 md:pr-12">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm Rahat Aayaz</h1>
+                <div class="md:w-2/3 md:pr-12 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">Hi, I'm Rahat Aayaz</h1>
                     <p class="theme-text-muted text-lg mb-6">
-                        A dedicated and analytical Research Assistant with a strong background in Building Engineering, Structural Design, and Machine Learning. Passionate about leveraging technology to create sustainable and efficient solutions in the construction industry.
+                        A dedicated Research Assistant specializing in Building Engineering, Structural Design, and Machine Learning. Passionate about sustainable construction solutions and cutting-edge technology.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="mailto:rahataayaz@gmail.com" class="accent-bg accent-bg-hover text-white font-bold py-2 px-4 rounded-lg transition-colors">Contact Me</a>
-                        <a href="https://syjds-my.sharepoint.com/:w:/g/personal/rahataayaz_syjds_onmicrosoft_com/EXEIKg_vpz9KiuAuPZ4Vv6cB-UOXBWxumUVLLmgxoEU0lw" target="_blank" class="theme-card font-bold py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">View CV</a>
+                    <div class="flex flex-wrap justify-center md:justify-start space-x-4 mb-6">
+                        <a href="mailto:rahataayaz@gmail.com" class="accent-bg accent-bg-hover text-white font-bold py-2 px-6 rounded-lg transition-colors">Contact Me</a>
+                        <a href="https://syjds-my.sharepoint.com/:w:/g/personal/rahataayaz_syjds_onmicrosoft_com/EXEIKg_vpz9KiuAuPZ4Vv6cB-UOXBWxumUVLLmgxoEU0lw" target="_blank" class="theme-card font-bold py-2 px-6 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">View CV</a>
+                    </div>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://orcid.org/0009-0009-9641-8033" target="_blank" class="social-icon" title="ORCID"><i class="fab fa-orcid"></i></a>
+                        <a href="https://github.com/Rahataah" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:rahataayaz@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <div class="md:w-1/4 mt-8 md:mt-0 flex justify-center">
-                    <!-- UPDATED: Added rounded-full class for circular shape -->
-                    <img src="https://i.postimg.cc/rsKDbJgL/1000029435.png" alt="Rahat Aayaz" class="rounded-full w-48 h-48 md:w-56 md:h-56 object-cover shadow-lg border-4 theme-border">
+                <div class="md:w-1/3 mt-8 md:mt-0 flex justify-center">
+                    <img src="https://i.postimg.cc/rsKDbJgL/1000029435.png" alt="Rahat Aayaz" class="profile-img rounded-full w-64 h-64 object-cover shadow-xl border-4 theme-border">
                 </div>
             </div>
         </section>
@@ -144,10 +186,15 @@
         <section id="experience" class="mb-16">
             <h2 class="section-title">Research Experience</h2>
             <div class="theme-card rounded-lg p-6 shadow">
-                <h3 class="text-xl font-semibold">Research Assistantship</h3>
+                <h3 class="text-2xl font-semibold mb-2">Research Assistantship</h3>
                 <p class="font-medium accent-text">Khulna University of Engineering & Technology (KUET)</p>
                 <p class="theme-text-muted text-sm mb-2">March 2024 - Present</p>
                 <p>Key Responsibilities: Research Article Drafting and Analysis, Lab Instruction, Machine Learning Analysis, Structural Designing.</p>
+                <h3 class="text-2xl font-semibold mt-6 mb-2">Undergraduate Thesis</h3>
+                <p class="font-medium accent-text">Khulna University of Engineering & Technology (KUET)</p>
+                <p class="theme-text-muted text-sm mb-2">January 2023 - February 2024</p>
+                <p><strong>Supervisor:</strong> Dr. Md. Habibur Rahman Sobuz</p>
+                <p><strong>Title:</strong> Enhancing High-Strength Concrete Incorporating Graphene and Hybrid Fibers: A Multi-Layered Laboratory Experiments and Machine Learning Analysis</p>
             </div>
         </section>
         
@@ -155,12 +202,60 @@
         <section id="publications" class="mb-16">
             <h2 class="section-title">Publications</h2>
             <div class="theme-card rounded-lg p-6 shadow">
-                <h3 class="text-xl font-semibold mb-4">Peer Reviewed Journals</h3>
-                <ul>
-                    <li class="publication-item">Md. Habibur Rahman Sobuz, <strong class="accent-text">Rahat Aayaz</strong>, et al. "Experimental and Microstructural Assessment of Hybrid Fiber Reinforced Graphene Nano-Engineered Concretes". Journal of Materials Research and Technology, 2024. <a href="https://doi.org/10.1016/j.jmrt.2025.03.003" target="_blank" class="text-blue-500 hover:underline">[DOI]</a></li>
-                    <li class="publication-item">Md. Habibur Rahman Sobuz, Md. Mushfiqur Rahman, <strong class="accent-text">Rahat Aayaz</strong>, et al. "Combined Influence of Modified Recycled Concrete Aggregate and Metakaolin on High-Strength Concrete Production...". Construction & Building Materials, 2024. <a href="https://doi.org/10.1016/j.conbuildmat.2025.139897" target="_blank" class="text-blue-500 hover:underline">[DOI]</a></li>
-                    <li class="publication-item">Asif Mahmud Momshad, Md. Hamidul Islam, <strong class="accent-text">Rahat Aayaz</strong>, et al. "Assessing the Engineering Properties and Environmental Impact...of Sustainable Concrete Utilizing Waste Banana Leaf Ash...". Cleaner Engineering and Technology, 2024. <a href="https://doi.org/10.1016/j.clet.2025.100886" target="_blank" class="text-blue-500 hover:underline">[DOI]</a></li>
-                </ul>
+                <h3 class="text-2xl font-semibold mb-4">Peer Reviewed Journals</h3>
+                <div class="space-y-4">
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> Experimental and Microstructural Assessment of Hybrid Fiber Reinforced Graphene Nano-Engineered Concretes</p>
+                        <p><strong>Authors:</strong> Md. Habibur Rahman Sobuz, Rahat Aayaz, SM Arifur Rahman, Faiz Uddin Ahmed Shaikh, Md. Kawsarul Islam Kabbo</p>
+                        <p><strong>Publisher:</strong> Journal of Materials Research and Technology, Elsevier, 2024</p>
+                        <a href="https://doi.org/10.1016/j.jmrt.2025.03.003" target="_blank" class="text-blue-500 hover:underline">[DOI]</a>
+                    </div>
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> Combined Influence of Modified Recycled Concrete Aggregate and Metakaolin on High-Strength Concrete Production</p>
+                        <p><strong>Authors:</strong> Md. Habibur Rahman Sobuz, Md. Mushfiqur Rahman, Rahat Aayaz, Wael S. Al-Rashed, Shuvo Dip Datta, Md. Abu Safayet, Md. Kawsarul Islam Kabbo, Masuk Abdullah</p>
+                        <p><strong>Publisher:</strong> Construction & Building Materials, Elsevier, 2024</p>
+                        <a href="https://doi.org/10.1016/j.conbuildmat.2025.139897" target="_blank" class="text-blue-500 hover:underline">[DOI]</a>
+                    </div>
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> Assessing the Engineering Properties and Environmental Impact of Sustainable Concrete Utilizing Waste Banana Leaf Ash as a Partial Cement Replacement</p>
+                        <p><strong>Authors:</strong> Asif Mahmud Momshad, Md. Hamidul Islam, Md. Habibur Rahman Sobuz, Shuvo Dip Datta, Rahat Aayaz, Md. Kawsarul Islam Kabbo, Md. Munir Hayet Khan</p>
+                        <p><strong>Publisher:</strong> Cleaner Engineering and Technology, Elsevier, 2024</p>
+                        <a href="https://doi.org/10.1016/j.clet.2025.100886" target="_blank" class="text-blue-500 hover:underline">[DOI]</a>
+                    </div>
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> Application of Genetic Machine Learning for Predicting, Quantifying, and Optimizing the Strength of Fiber-Reinforced Concrete</p>
+                        <p><strong>Authors:</strong> Rahat Aayaz, Israt Jahan</p>
+                        <p><strong>Publisher:</strong> Submitted to Streamlit.app</p>
+                    </div>
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> A Novel Hybrid Machine Learning Based Prediction of Compressive Strength of Natural Fiber Recycled Aggregate Concrete with Incorporating SHAP and PDP Analysis</p>
+                        <p><strong>Authors:</strong> Rahat Aayaz, Md. Habibur Rahman Sobuz, Md. Kawsarul Islam Kabbo, Muhammad Izzat Nor Ma'arof, Walid Mansour, SM Arifur Rahman, Aanika Roshni, Jannat Ara Jabin, Md. Munir Hayet Khan, Israt Jahan, Abu Sayed Mohammad Akid</p>
+                        <p><strong>Publisher:</strong> In Progress</p>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-semibold mt-6 mb-4">Conference Proceedings</h3>
+                <div class="space-y-4">
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> Compressive Strength Prediction of High-Strength Graphene Reinforced Concrete using Machine Learning</p>
+                        <p><strong>Authors:</strong> Rahat Aayaz, Md. Habibur Rahman Sobuz, Sumaiya Mifra Akhter, Jannat Ara Jabin</p>
+                        <p><strong>Publisher:</strong> 7th International Conference on Civil Engineering for Sustainable Development (ICCESD 2024), KUET, Khulna, 7-9 February 2024</p>
+                    </div>
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> Optimizing Small Spaces: A Comprehensive Study on Interior Design Challenges, Perceptual Experiences, and Innovative Solutions</p>
+                        <p><strong>Authors:</strong> Israt Jahan, Md. Shahriar Hossain, Rahat Aayaz</p>
+                        <p><strong>Publisher:</strong> 7th International Conference on Civil Engineering for Sustainable Development (ICCESD 2024), KUET, Khulna, 7-9 February 2024</p>
+                    </div>
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> Machine Learning Techniques to Predict Performance of Fiber-Infused Self-Compacting Concrete with SHAP & PDP Analysis</p>
+                        <p><strong>Authors:</strong> Md Al Toufiq Billah, Ayan Saha, Rahat Aayaz</p>
+                        <p><strong>Publisher:</strong> 7th International Conference on Advances in Civil Engineering (ICACE 2024), CUET, Chittagong, 12-14 December 2024</p>
+                    </div>
+                    <div class="publication-item theme-card">
+                        <p><strong>Title:</strong> An Investigation for Detecting Plastic Waste Using Automated River Mapping with Unmanned Aerial Vehicles (UAVs) and Deep Learning Algorithms in Buriganga River</p>
+                        <p><strong>Authors:</strong> Aanika Roshni, Rahat Aayaz</p>
+                        <p><strong>Publisher:</strong> 9th International Conference on Sustainable Solutions for Waste Management in Developing Countries (WasteSafe 2025), KUET, Khulna, 22-23 February 2025 [Under Review]</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -168,12 +263,20 @@
         <section id="education" class="mb-16">
             <h2 class="section-title">Education</h2>
             <div class="theme-card rounded-lg p-6 shadow">
-                <h3 class="text-xl font-semibold">Bachelor of Science in Engineering</h3>
+                <h3 class="text-2xl font-semibold mb-2">Bachelor of Science in Engineering</h3>
                 <p class="font-medium accent-text">Khulna University of Engineering & Technology</p>
                 <p class="theme-text-muted text-sm mb-2">Dec 2018 - Mar 2024</p>
                 <p><strong>Department:</strong> Building Engineering and Construction Management</p>
                 <p><strong>Major:</strong> Structural & Materials Engineering</p>
                 <p><strong>CGPA:</strong> 3.14/4.00</p>
+                <h3 class="text-2xl font-semibold mt-6 mb-2">Higher Secondary Certificate (HSC)</h3>
+                <p class="font-medium accent-text">Birshreshtha Noor Mohammad Public College</p>
+                <p class="theme-text-muted text-sm mb-2">Mar 2016 - Apr 2018</p>
+                <p><strong>Field of Study:</strong> Science</p>
+                <h3 class="text-2xl font-semibold mt-6 mb-2">Secondary School Certificate (SSC)</h3>
+                <p class="font-medium accent-text">Faizur Rahman Ideal Institute</p>
+                <p class="theme-text-muted text-sm mb-2">Jan 2006 - Feb 2016</p>
+                <p><strong>Field of Study:</strong> Science</p>
             </div>
         </section>
 
@@ -201,42 +304,38 @@
     </main>
     
     <!-- Footer -->
-    <footer class="theme-card mt-16 border-t theme-border">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                <div class="mb-4 md:mb-0">
-                     <p class="font-bold">Rahat Aayaz</p>
-                     <p class="theme-text-muted text-sm">Dhaka, Bangladesh</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" class="theme-text-muted hover:accent-text transition-colors"><i class="fas fa-graduation-cap fa-lg"></i><span class="sr-only">Google Scholar</span></a>
-                    <a href="https://orcid.org/0009-0009-9641-8033" target="_blank" class="theme-text-muted hover:accent-text transition-colors"><i class="fab fa-orcid fa-lg"></i><span class="sr-only">ORCID</span></a>
-                    <a href="https://github.com/your_github" target="_blank" class="theme-text-muted hover:accent-text transition-colors"><i class="fab fa-github fa-lg"></i><span class="sr-only">GitHub</span></a>
-                    <a href="mailto:rahataayaz@gmail.com" class="theme-text-muted hover:accent-text transition-colors"><i class="fas fa-envelope fa-lg"></i><span class="sr-only">Email</span></a>
-                </div>
+    <footer class="theme-card py-8 border-t theme-border">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-bold text-lg">Rahat Aayaz</p>
+            <p class="theme-text-muted text-sm mb-4">Dhaka, Bangladesh</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://scholar.google.com/citations?user=your_scholar_id" target="_blank" class="social-icon"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://orcid.org/0009-0009-9641-8033" target="_blank" class="social-icon"><i class="fab fa-orcid"></i></a>
+                <a href="https://github.com/Rahataah" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="mailto:rahataayaz@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
             </div>
-             <p class="text-center theme-text-muted text-xs mt-8">&copy; 2025 Rahat Aayaz. All Rights Reserved.</p>
+            <p class="theme-text-muted text-xs mt-6">© 2025 Rahat Aayaz. All Rights Reserved.</p>
         </div>
     </footer>
-
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
+        const navLinks = document.querySelectorAll('.nav-link');
 
-        // On page load, apply the saved theme or default to light
+        // Apply saved theme on load, default to dark
         const applySavedTheme = () => {
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                body.classList.replace('light-theme', 'dark-theme');
-                themeToggle.checked = true;
-            } else {
-                body.classList.add('light-theme'); // Ensure light-theme is present
+            if (savedTheme === 'light') {
+                body.classList.replace('dark-theme', 'light-theme');
                 themeToggle.checked = false;
+            } else {
+                body.classList.add('dark-theme');
+                themeToggle.checked = true;
             }
         };
 
-        // Toggle theme and save preference to localStorage
+        // Toggle theme
         const handleThemeToggle = () => {
             if (themeToggle.checked) {
                 body.classList.replace('light-theme', 'dark-theme');
@@ -247,8 +346,33 @@
             }
         };
 
+        // Highlight active nav link
+        const setActiveNavLink = () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+
         themeToggle.addEventListener('change', handleThemeToggle);
-        document.addEventListener('DOMContentLoaded', applySavedTheme);
+        window.addEventListener('scroll', setActiveNavLink);
+        document.addEventListener('DOMContentLoaded', () => {
+            applySavedTheme();
+            setActiveNavLink();
+        });
     </script>
 
 </body>
