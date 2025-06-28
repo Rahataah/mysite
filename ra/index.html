@@ -12,21 +12,25 @@
             --bg-light: #f9fafb;
             --bg-dark: #000000; /* Pitch black for AMOLED */
             --card-bg-light: #ffffff;
-            --card-bg-dark: #1a1a1a; /* Slightly lighter for cards */
+            --card-bg-dark: #1a1a1a;
             --text-light: #1e293b;
-            --text-dark: #f3f4f6; /* High contrast for dark theme */
+            --text-dark: #f3f4f6;
             --text-muted-light: #6b7280;
             --text-muted-dark: #9ca3af;
             --border-light: #e5e7eb;
-            --border-dark: #2d2d2d; /* Subtle border for dark theme */
+            --border-dark: #2d2d2d;
             --accent: #6366f1;
             --accent-hover: #4f46e5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Offset for fixed header */
         }
 
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
-            scroll-behavior: smooth;
         }
 
         .light-theme {
@@ -127,6 +131,17 @@
         .social-icon {
             @apply text-2xl p-2 rounded-full border theme-border hover:accent-text transition-all;
         }
+
+        /* Fade-in animation for sections */
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="dark-theme">
@@ -161,7 +176,7 @@
         <section id="about" class="hero-section mb-16">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-2/3 md:pr-12 text-center md:text-left">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">Hi, I'm Rahat Aayaz</h1>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Rahat Aayaz</h1>
                     <p class="theme-text-muted text-lg mb-6">
                         A dedicated Research Assistant specializing in Building Engineering, Structural Design, and Machine Learning. Passionate about sustainable construction solutions and cutting-edge technology.
                     </p>
@@ -322,6 +337,7 @@
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
 
         // Apply saved theme on load, default to dark
         const applySavedTheme = () => {
@@ -346,9 +362,17 @@
             }
         };
 
-        // Highlight active nav link
+        // Debounce function to optimize scroll performance
+        const debounce = (func, wait) => {
+            let timeout;
+            return (...args) => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        };
+
+        // Highlight active nav link and handle section visibility
         const setActiveNavLink = () => {
-            const sections = document.querySelectorAll('section[id]');
             const scrollPosition = window.scrollY + 100;
 
             sections.forEach(section => {
@@ -356,6 +380,7 @@
                 const sectionHeight = section.offsetHeight;
                 const sectionId = section.getAttribute('id');
 
+                // Active nav link
                 if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                     navLinks.forEach(link => {
                         link.classList.remove('active');
@@ -364,14 +389,25 @@
                         }
                     });
                 }
+
+                // Section visibility animation
+                if (scrollPosition >= sectionTop - window.innerHeight / 1.5) {
+                    section.classList.add('visible');
+                }
             });
         };
 
         themeToggle.addEventListener('change', handleThemeToggle);
-        window.addEventListener('scroll', setActiveNavLink);
+        window.addEventListener('scroll', debounce(setActiveNavLink, 50));
         document.addEventListener('DOMContentLoaded', () => {
             applySavedTheme();
             setActiveNavLink();
+            // Trigger initial visibility check
+            sections.forEach(section => {
+                if (window.scrollY + window.innerHeight / 1.5 > section.offsetTop) {
+                    section.classList.add('visible');
+                }
+            });
         });
     </script>
 
